@@ -5,13 +5,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mathseiw.quizz.model.User;
 
 @Controller
+@SessionAttributes("User")
 public class BaseController {
-
     @RequestMapping(value = "/start", method = RequestMethod.GET)
     public ModelAndView showForm() {
         return new ModelAndView("index", "user", new User());
