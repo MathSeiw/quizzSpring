@@ -12,10 +12,11 @@
 
 	<div class="container">
 
-		<form:form class="form-signin" method="POST" action="test" modelAttribute="user">
+		<form:form class="form-signin" method="POST" modelAttribute="user">
 			<h2 class="form-signin-heading">Please sign in</h2>
 			<form:label path="username" class="sr-only">Username</form:label>
 			<form:input path="username" name="username" id="username" class="form-control"/>
+			<form:errors path="username" cssClass="error" />
 			<form:button id="enter" name="enter">Enter</form:button>
 		</form:form>
 	</div>
