@@ -4,9 +4,12 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class User {
     
     @NotNull
+    @Value("${user.default.username:my default value}")
     @Size(min=2, max=30) 
     private String username;
 
