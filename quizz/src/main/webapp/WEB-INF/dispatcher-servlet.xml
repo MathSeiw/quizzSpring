@@ -12,10 +12,11 @@
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 
+<mvc:annotation-driven />
 	<context:component-scan base-package="com.mathseiw" />
 
 	<bean id="user" class="com.mathseiw.quizz.model.User" scope="prototype"></bean>
-	<bean id="quizz" class="com.mathseiw.quizz.model.Quizz1" scope="prototype"></bean>
+	<bean id="quizz" class="com.mathseiw.quizz.model.Quizz" scope="prototype"></bean>
 	
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

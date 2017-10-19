@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mathseiw.quizz.model.Question;
 import com.mathseiw.quizz.model.Quizz;
-import com.mathseiw.quizz.model.Quizz1;
 import com.mathseiw.quizz.model.User;
 
 @Controller
@@ -31,7 +31,7 @@ public class BaseController {
     @Autowired
     private User user;
     @Autowired
-    private Quizz1 quizz;
+    private Quizz quizz;
     
     private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
     
@@ -39,10 +39,13 @@ public class BaseController {
     public ModelAndView showForm() {
         return new ModelAndView("index", "user", user);
     }
-    @RequestMapping(value = "/start",method = RequestMethod.POST)
-    public String requestDone(@Valid @ModelAttribute("user")User user,BindingResult bindingResult,final ModelMap pModel) {
+    @RequestMapping(value = "/bienvenue",method = RequestMethod.POST)
+    public String requestDone(@Valid @ModelAttribute("user")User user,BindingResult bindingResult, 
+            RedirectAttributes redirectAttributes,final ModelMap pModel) {
         if (bindingResult.hasErrors()) {
-            return "index";
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.user", bindingResult);
+            redirectAttributes.addFlashAttribute("user", user);
+            return "redirect:/start";
         }
         return "success";
     }

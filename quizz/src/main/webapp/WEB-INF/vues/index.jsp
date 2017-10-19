@@ -13,7 +13,7 @@
 
 	<div class="container">
 
-		<form:form class="form-signin" method="POST" modelAttribute="user">
+		<form:form class="form-signin" method="POST" modelAttribute="user" action="bienvenue">
 			<h2 class="form-signin-heading"><spring:message code="start.title"/></h2>
 			<form:label path="username" class="sr-only">Username</form:label>
 			<form:input path="username" name="username" id="username" class="form-control"/>
