@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mathseiw.quizz.model.Quizz;
 import com.mathseiw.quizz.model.User;
 
 @Controller
@@ -20,6 +21,8 @@ public class BaseController {
 
     @Autowired
     private User user;
+    @Autowired
+    private Quizz quizz;
     
     @RequestMapping(value = "/start", method = RequestMethod.GET)
     public ModelAndView showForm() {
@@ -34,7 +37,7 @@ public class BaseController {
     }
     
     @RequestMapping(value = "/quizz",method = RequestMethod.POST)
-    public String quiz(final ModelMap pModel) {
-        return "quizz";
+    public ModelAndView quizz() {
+        return new ModelAndView("quizz", "quizz", quizz);
     }
 }

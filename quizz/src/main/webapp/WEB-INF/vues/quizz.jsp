@@ -16,7 +16,10 @@
 		<h2 class="form-signin-heading">
 			<spring:message code="quizz.title" />
 		</h2>
-		<spring:message code="success.hello" arguments="${user.username}" />
+		<spring:message code="success.hello" arguments="${user.username}" /><br />
+		<c:forEach items="${quizz.questions}" var="questions">
+			<c:out value="${questions}"/><br />
+		</c:forEach>
 	</div>
 	<!-- /.container -->
 	<script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
