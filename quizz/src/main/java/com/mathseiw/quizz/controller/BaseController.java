@@ -39,7 +39,7 @@ public class BaseController {
     public ModelAndView showForm() {
         return new ModelAndView("index", "user", user);
     }
-    @RequestMapping(value = "/bienvenue",method = RequestMethod.POST)
+    @RequestMapping(value = "/inscription",method = RequestMethod.POST)
     public String requestDone(@Valid @ModelAttribute("user")User user,BindingResult bindingResult, 
             RedirectAttributes redirectAttributes,final ModelMap pModel) {
         if (bindingResult.hasErrors()) {
@@ -56,13 +56,10 @@ public class BaseController {
     }
     
     @RequestMapping(value = "/verifquizz",method = RequestMethod.POST)
-    public ModelAndView verifquizz(@ModelAttribute("quizz")Quizz quizz,@RequestParam("myValues") String[] myValues,BindingResult bindingResult,final ModelMap pModel) {
-        logger.error( "errr"+quizz);
-        logger.error( "errr"+quizz.getlistquestions());
-        System.out.println(myValues.length);
-        for(String value : myValues){
+    public ModelAndView verifquizz(@ModelAttribute("quizz")Quizz quizz,BindingResult bindingResult,final ModelMap pModel) {
+        for(String value : quizz.getListreponses()){
             System.out.println(value);
         }
-        return new ModelAndView("quizz", "quizz", quizz);
+        return new ModelAndView("repquizz", "quizz", quizz);
     }
 }

@@ -24,9 +24,14 @@
 			<c:forEach items="${quizz.listquestions}" var="question"
 				varStatus="status">
 				<c:out value="${question.question}" />
-				<input name="listreponses[${status.index}]"/>
-				<input type="hidden" name="listquestions[${status.index}].question" value="${question.question}"/>
-				<input type="hidden" name="listquestions[${status.index}].response" value="${question.response}"/><br />
+				<c:out value="${quizz.listreponses[status.index]}" />
+				<input type="hidden" name="listreponses[${status.index}]"
+					value="${quizz.listreponses[status.index]}" />
+				<input type="hidden" name="listquestions[${status.index}].question"
+					value="${question.question}" />
+				<input type="hidden" name="listquestions[${status.index}].response"
+					value="${question.response}" />
+				<br />
 			</c:forEach>
 			<form:button id="enter" name="enter">
 				<spring:message code="quizz.end" />
