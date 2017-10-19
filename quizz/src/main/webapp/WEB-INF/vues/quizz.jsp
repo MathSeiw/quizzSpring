@@ -14,14 +14,9 @@
 
 	<div class="container">
 		<h2 class="form-signin-heading">
-			<spring:message code="success.title" />
+			<spring:message code="quizz.title" />
 		</h2>
 		<spring:message code="success.hello" arguments="${user.username}" />
-		<form class="form-signin" method="POST" action="quizz">
-			<button id="enter" name="enter">
-				<spring:message code="success.enter" />
-			</button>
-		</form>
 	</div>
 	<!-- /.container -->
 	<script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>

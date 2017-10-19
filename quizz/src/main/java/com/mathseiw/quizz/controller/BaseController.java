@@ -32,4 +32,9 @@ public class BaseController {
         }
         return "success";
     }
+    
+    @RequestMapping(value = "/quizz",method = RequestMethod.POST)
+    public String quiz(final ModelMap pModel) {
+        return "quizz";
+    }
 }
