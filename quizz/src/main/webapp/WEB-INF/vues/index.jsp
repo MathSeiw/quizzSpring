@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+	<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +14,11 @@
 	<div class="container">
 
 		<form:form class="form-signin" method="POST" modelAttribute="user">
-			<h2 class="form-signin-heading">Please sign in</h2>
+			<h2 class="form-signin-heading"><spring:message code="start.title"/></h2>
 			<form:label path="username" class="sr-only">Username</form:label>
 			<form:input path="username" name="username" id="username" class="form-control"/>
 			<form:errors path="username" cssClass="error" />
-			<form:button id="enter" name="enter">Enter</form:button>
+			<form:button id="enter" name="enter"><spring:message code="start.enter"/></form:button>
 		</form:form>
 	</div>
 	<!-- /.container -->
