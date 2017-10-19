@@ -50,7 +50,7 @@ public class BaseController {
         return "success";
     }
     
-    @RequestMapping(value = "/quizz",method = RequestMethod.POST)
+    @RequestMapping(value = "/quizz",method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
     public ModelAndView quizz() {
         return new ModelAndView("quizz", "quizz", quizz);
     }
