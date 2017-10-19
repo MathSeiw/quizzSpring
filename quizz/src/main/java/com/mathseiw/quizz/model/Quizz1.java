@@ -6,9 +6,9 @@ import java.util.List;
 public class Quizz1 extends Quizz {
 
     Quizz1(){
-        List<String> questions = new ArrayList<String>();
-        questions.add( "question 1" );
-        questions.add( "question 2" );
-        this.setQuestions( questions );
+        List<Question> questions = new ArrayList<Question>();
+        questions.add(new Question("question 1","1") );
+        questions.add(new Question("question 2","2") );
+        this.setlistquestions( questions );
     }
 }
