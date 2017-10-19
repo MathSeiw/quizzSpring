@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 public class User {
     
     @NotNull
-    @Value("${user.default.username:my default value}")
+    @Value("${user.default.username:Default}")
     @Size(min=2, max=30) 
     private String username;
 
