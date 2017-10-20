@@ -1,26 +1,21 @@
 package com.mathseiw.quizz.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.mathseiw.quizz.model.Question;
 import com.mathseiw.quizz.model.Quizz;
 import com.mathseiw.quizz.model.User;
 
@@ -45,14 +40,18 @@ public class BaseController {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.user", bindingResult);
             redirectAttributes.addFlashAttribute("user", user);
+            //https://stackoverflow.com/questions/7755601/detect-session-expired-or-session-timeout-using-spring3
             return "redirect:/start";
         }
         return "success";
     }
-    
-    @RequestMapping(value = "/quizz",method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
-    public ModelAndView quizz() {
-        return new ModelAndView("quizz", "quizz", quizz);
+    @RequestMapping(value = "/quizz",method = RequestMethod.GET)
+    public String quizz(Model model) {
+        System.out.println(user);
+        System.out.println(user.getUsername());
+        model.addAttribute("quizz", quizz);
+        model.addAttribute("user", user);
+        return "quizz";
     }
     
     @RequestMapping(value = "/verifquizz",method = RequestMethod.POST)

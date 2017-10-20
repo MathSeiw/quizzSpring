@@ -30,6 +30,10 @@
 			org.springframework.web.context.request.RequestContextListener
 		</listener-class>
 	</listener>
+	<session-config>
+	    <session-timeout>1</session-timeout>
+	</session-config>
+	
 	<!-- Declaration de la servlet de Spring et de son mapping -->
 	<servlet>
 		<servlet-name>servlet-dispatcher</servlet-name>
