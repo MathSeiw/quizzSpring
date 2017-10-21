@@ -6,6 +6,11 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
 	</context-param>
+
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -27,13 +32,9 @@
 	</listener>
 	<listener>
 		<listener-class>
-			org.springframework.web.context.request.RequestContextListener
-		</listener-class>
+			org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
-	<session-config>
-	    <session-timeout>1</session-timeout>
-	</session-config>
-	
+
 	<!-- Declaration de la servlet de Spring et de son mapping -->
 	<servlet>
 		<servlet-name>servlet-dispatcher</servlet-name>

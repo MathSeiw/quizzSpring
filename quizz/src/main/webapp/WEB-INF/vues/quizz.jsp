@@ -18,7 +18,6 @@
 			<spring:message code="quizz.title" />
 		</h2>
 		<spring:message code="success.hello" arguments="${user.username}" />
-		 ---- lala   -- <c:out value="${sessionScope.user.username}"/>
 		<br />
 		<form:form class="form-signin" method="POST" modelAttribute="quizz"
 			action="verifquizz">
